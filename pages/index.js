@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import PriceChart from '../components/PriceChart';
-import PredictionCarousel from '../components/PredictionCarousel';
-import PredictionOption from '../components/PredictionOption';
-import { getPredictions } from '../lib/solana';
-import '../styles/global.css';
+import React from 'react';
+import Head from 'next/head';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Carousel from '../components/Carousel';
+import TradingViewChart from '../components/TradingViewChart';
+import PredictionCard from '../components/PredictionCard';
+import ConnectWalletButton from '../components/ConnectWalletButton';
+import ClaimRewardsButton from '../components/ClaimRewardsButton';
+import CheckEligibilityButton from '../components/CheckEligibilityButton';
 
 export default function Home() {
-  const [predictions, setPredictions] = useState([]);
-
-  useEffect(() => {
-    async function fetchPredictions() {
-      const data = await getPredictions();
-      setPredictions(data);
-    }
-    fetchPredictions();
-    const interval = setInterval(fetchPredictions, 300000); // Fetch new predictions every 5 minutes
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="container">
-      <PriceChart id="price-chart" />
-      <PredictionCarousel id="prediction-carousel" predictions={predictions} />
-      {predictions.map((prediction) => (
-        <PredictionOption key={prediction.id} id="prediction-option" prediction={prediction} />
-      ))}
+    <div>
+      <Head>
+        <title>Solana Prediction Market</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Header />
+
+      <main>
+        <TradingViewChart />
+        <Carousel />
+        <PredictionCard />
+        <ConnectWalletButton />
+        <ClaimRewardsButton />
+        <CheckEligibilityButton />
+      </main>
+
+      <Footer />
     </div>
-  );
+  )
 }

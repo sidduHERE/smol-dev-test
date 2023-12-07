@@ -1,0 +1,49 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    margin: 20px 0;
+}
+
+.carouselItem {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 10px;
+    transition: transform 0.5s;
+    opacity: 0.4;
+}
+
+.carouselItem.active {
+    opacity: 1;
+}
+
+.carouselItem img {
+    width: 100%;
+    height: auto;
+}
+
+.carouselControls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.carouselControl {
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.carouselControl:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
