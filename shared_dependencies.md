@@ -1,11 +1,37 @@
-1. Dependencies: These are the libraries or packages that the application will need to function properly. For this project, the dependencies include Next.js (for server-side rendering and static site generation), Solana web3.js (for interacting with the Solana blockchain), and TradingView (for displaying the BTC price chart).
+Shared Dependencies:
 
-2. Exported Variables: These are the variables that are shared across different files. They include the Solana connection object, the user's wallet object, and the current round of predictions.
+1. **Exported Variables**: 
+   - `roundsData`: Data related to the rounds of the prediction market.
+   - `claimData`: Data related to the claim process of the token giveaway.
+   - `walletData`: Data related to the user's wallet connection.
 
-3. Data Schemas: These define the structure of the data used in the application. For this project, the data schemas include the Prediction schema (which includes fields for the prediction ID, the user's wallet address, and whether the user went long or short), and the Round schema (which includes fields for the round ID, the start and end times, and the list of predictions).
+2. **Data Schemas**: 
+   - `RoundSchema`: Schema for the rounds data.
+   - `ClaimSchema`: Schema for the claim data.
+   - `WalletSchema`: Schema for the wallet data.
 
-4. DOM Element IDs: These are the unique identifiers for elements in the HTML document. They include IDs for the TradingView chart, the carousel of rounds, and the buttons for connecting the wallet, claiming rewards, and checking eligibility.
+3. **DOM Element IDs**: 
+   - `priceChart`: ID for the TradingView iframe.
+   - `carousel`: ID for the carousel of rounds.
+   - `optionLong`: ID for the option to go long.
+   - `optionShort`: ID for the option to go short.
+   - `claimButton`: ID for the claim button.
+   - `shareButtonTwitter`: ID for the Twitter share button.
+   - `shareButtonFacebook`: ID for the Facebook share button.
+   - `walletButton`: ID for the wallet connection button.
+   - `interactContractButton`: ID for the button to interact with the contract.
 
-5. Message Names: These are the names of the messages that are sent between different parts of the application. They include messages for starting a new round, making a prediction, claiming rewards, and checking eligibility.
+4. **Message Names**: 
+   - `claimSuccess`: Message displayed after successful claim.
+   - `claimFailure`: Message displayed after failed claim.
+   - `walletConnected`: Message displayed after successful wallet connection.
+   - `walletDisconnected`: Message displayed after wallet disconnection.
 
-6. Function Names: These are the names of the functions that perform various actions in the application. They include functions for connecting the wallet, making a prediction, starting a new round, claiming rewards, and checking eligibility.
+5. **Function Names**: 
+   - `fetchRoundsData`: Function to fetch rounds data.
+   - `fetchClaimData`: Function to fetch claim data.
+   - `connectWallet`: Function to connect the wallet.
+   - `interactContract`: Function to interact with the contract.
+   - `claimTokens`: Function to claim tokens.
+   - `shareOnTwitter`: Function to share on Twitter.
+   - `shareOnFacebook`: Function to share on Facebook.

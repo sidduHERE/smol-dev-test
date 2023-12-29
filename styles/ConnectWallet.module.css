@@ -1,0 +1,27 @@
+.connectWallet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.connectWallet:hover {
+    background-color: #0B0B0B;
+}
+
+.connectWallet:disabled {
+    background-color: #333333;
+    cursor: not-allowed;
+}
+
+.walletProvider {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #AAAAAA;
+}
