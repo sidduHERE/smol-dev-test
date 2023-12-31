@@ -1,32 +1,29 @@
 1. Dependencies: 
-   - "next": The Next.js framework used in all pages and components.
-   - "react": The React library used in all pages and components.
-   - "solana-web3.js": The Solana JavaScript API used in "lib/solana.js".
-   - "tradingview": The TradingView library used in "lib/tradingView.js".
+   - "next": The Next.js framework used for server-rendered React applications.
+   - "react": A JavaScript library for building user interfaces.
+   - "solana-web3.js": A JavaScript API for interacting with the Solana blockchain.
+   - "tradingview": A lightweight and powerful JavaScript library for embedding TradingView charts.
 
 2. Exported Variables:
-   - "PriceChart" from "components/PriceChart.js".
-   - "RoundCarousel" from "components/RoundCarousel.js".
-   - "OptionCard" from "components/OptionCard.js".
+   - "PriceChart": Exported from "components/PriceChart.js", used in "pages/index.js".
+   - "PredictionCarousel": Exported from "components/PredictionCarousel.js", used in "pages/index.js".
+   - "PredictionOption": Exported from "components/PredictionOption.js", used in "components/PredictionCarousel.js".
 
 3. Data Schemas:
-   - "priceData" schema used in "pages/api/price.js" and "components/PriceChart.js".
-   - "roundData" schema used in "components/RoundCarousel.js".
-   - "optionData" schema used in "components/OptionCard.js".
+   - "Prediction": A schema representing a prediction market option, used in "components/PredictionOption.js" and "components/PredictionCarousel.js".
 
 4. ID Names of DOM Elements:
-   - "price-chart" in "components/PriceChart.js".
-   - "round-carousel" in "components/RoundCarousel.js".
-   - "option-card" in "components/OptionCard.js".
+   - "price-chart": ID for the TradingView chart in "components/PriceChart.js".
+   - "prediction-carousel": ID for the carousel of prediction options in "components/PredictionCarousel.js".
+   - "prediction-option": ID for each prediction option in "components/PredictionOption.js".
 
 5. Message Names:
-   - "PRICE_UPDATE" used in "pages/api/price.js" and "components/PriceChart.js".
-   - "ROUND_EXPIRED" and "ROUND_COMING" used in "components/RoundCarousel.js".
-   - "OPTION_SELECTED" used in "components/OptionCard.js".
+   - "PRICE_UPDATE": A message name for updating the BTC price, used in "pages/api/price.js" and "lib/solana.js".
+   - "PREDICTION_EXPIRED": A message name for expired predictions, used in "components/PredictionCarousel.js" and "lib/solana.js".
+   - "PREDICTION_COMING": A message name for upcoming predictions, used in "components/PredictionCarousel.js" and "lib/solana.js".
 
 6. Function Names:
-   - "getPriceData" in "pages/api/price.js" and "components/PriceChart.js".
-   - "getRoundData" in "components/RoundCarousel.js".
-   - "getOptionData" in "components/OptionCard.js".
-   - "connectSolana" in "lib/solana.js".
-   - "initTradingView" in "lib/tradingView.js".
+   - "getPrice": A function for getting the current BTC price, used in "pages/api/price.js" and "lib/tradingView.js".
+   - "getPredictions": A function for getting the current prediction options, used in "components/PredictionCarousel.js" and "lib/solana.js".
+   - "expirePrediction": A function for expiring a prediction, used in "components/PredictionCarousel.js" and "lib/solana.js".
+   - "comingPrediction": A function for upcoming predictions, used in "components/PredictionCarousel.js" and "lib/solana.js".

@@ -1,20 +1,10 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { getPrice } from '../../lib/tradingView.js';
 
-// Mock data for BTC price
-const priceData = {
-  price: 50000,
-  timestamp: Date.now(),
-};
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  // Simulate price update every 5 minutes
-  setInterval(() => {
-    priceData.price = Math.floor(Math.random() * 60000) + 40000;
-    priceData.timestamp = Date.now();
-  }, 300000);
-
-  res.status(200).json(priceData);
+export default async function handler(req, res) {
+  try {
+    const price = await getPrice();
+    res.status(200).json({ price });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch BTC price' });
+  }
 }
