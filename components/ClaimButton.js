@@ -1,25 +1,28 @@
 import React from 'react';
-import { claimTokens } from '../api/claim';
-import '../styles/ClaimButton.module.css';
 
 const ClaimButton = ({ claimData }) => {
-  const handleClaim = async () => {
+  const handleClick = async () => {
     try {
-      const response = await claimTokens(claimData);
-      if (response.status === 200) {
-        alert('claimSuccess');
-      } else {
-        alert('claimFailure');
+      const response = await fetch('/api/claim', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ claimData }),
+      });
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
+      const result = await response.json();
+      console.log(result.message);
     } catch (error) {
-      console.error(error);
-      alert('claimFailure');
+      console.error('Error:', error);
     }
   };
 
   return (
-    <button id="claimButton" onClick={handleClaim}>
-      Claim Now
+    <button id="claimButton" onClick={handleClick}>
+      Claim
     </button>
   );
 };

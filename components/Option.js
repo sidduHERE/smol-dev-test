@@ -1,34 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import styles from '../styles/Option.module.css';
 
-const Option = ({ optionType, disabled }) => {
+const Option = ({ optionData }) => {
   return (
-    <div id={optionType === 'long' ? 'optionLong' : 'optionShort'} className="option">
-      <button disabled={disabled}>
-        {optionType === 'long' ? 'Go Long' : 'Go Short'}
-      </button>
-      <style jsx>{`
-        .option {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin: 20px;
-        }
-        .option button {
-          padding: 10px 20px;
-          font-size: 16px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          background-color: ${optionType === 'long' ? '#4caf50' : '#f44336'};
-          color: white;
-        }
-        .option button:disabled {
-          background-color: #ddd;
-          cursor: not-allowed;
-        }
-      `}</style>
+    <div className={styles.optionContainer}>
+      <div className={styles.option}>
+        <h2>{optionData.title}</h2>
+        <p>{optionData.description}</p>
+        <button className={styles.optionButton} onClick={optionData.action}>
+          {optionData.buttonText}
+        </button>
+      </div>
     </div>
   );
+};
+
+Option.propTypes = {
+  optionData: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
+    action: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default Option;

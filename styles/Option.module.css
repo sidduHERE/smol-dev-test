@@ -8,7 +8,7 @@
     margin-bottom: 20px;
 }
 
-.optionLong, .optionShort {
+.option {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,31 +16,35 @@
     width: 45%;
     padding: 20px;
     border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.optionLong:hover, .optionShort:hover {
-    transform: scale(1.05);
-}
-
-.optionLong {
-    background-color: #4caf50;
-    color: white;
-}
-
-.optionShort {
-    background-color: #f44336;
-    color: white;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .optionTitle {
     font-size: 24px;
     font-weight: bold;
+    color: #333333;
     margin-bottom: 10px;
 }
 
 .optionDescription {
     font-size: 16px;
+    color: #666666;
     text-align: center;
+}
+
+.optionButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.optionButton:hover {
+    background-color: #0056b3;
 }

@@ -1,39 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import styles from '../styles/Carousel.module.css';
 
-const Carousel = () => {
-  const [roundsData, setRoundsData] = useState([]);
-
-  useEffect(() => {
-    fetchRoundsData().then(data => setRoundsData(data));
-  }, []);
-
+const CarouselComponent = ({ roundData }) => {
   return (
     <div id="carousel" className={styles.carousel}>
-      {roundsData.map((round, index) => (
-        <div key={index} className={styles.round}>
-          <h3>{round.title}</h3>
-          <p>{round.description}</p>
-          {round.expired ? (
-            <p className={styles.expired}>Round Expired</p>
-          ) : round.upcoming ? (
-            <p className={styles.upcoming}>Round Upcoming</p>
-          ) : (
-            <div className={styles.options}>
-              <button id="optionLong" className={styles.optionLong}>Go Long</button>
-              <button id="optionShort" className={styles.optionShort}>Go Short</button>
-            </div>
-          )}
-        </div>
-      ))}
+      <Carousel
+        showArrows={true}
+        infiniteLoop={true}
+        showThumbs={false}
+        autoPlay={true}
+        interval={300000}
+      >
+        {roundData.map((round, index) => (
+          <div key={index} className={styles.carouselItem}>
+            <h3>{round.title}</h3>
+            <p>{round.description}</p>
+            <button disabled={round.isExpired}>Go Long</button>
+            <button disabled={round.isExpired}>Go Short</button>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
 
-async function fetchRoundsData() {
-  const res = await fetch('/api/rounds');
-  const data = await res.json();
-  return data;
-}
-
-export default Carousel;
+export default CarouselComponent;

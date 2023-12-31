@@ -1,0 +1,20 @@
+{
+  "name": "solana-prediction-market",
+  "version": "1.0.0",
+  "description": "A Solana chain dapp for prediction market",
+  "main": "pages/index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-responsive-carousel": "^3.2.21",
+    "tradingview-widget": "^1.0.0",
+    "@solana/web3.js": "^1.30.2",
+    "@binance/connector": "^1.2.1"
+  }
+}

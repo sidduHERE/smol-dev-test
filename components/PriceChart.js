@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 
 const PriceChart = () => {
+  const [priceData, setPriceData] = useState([]);
+
+  useEffect(() => {
+    getPriceData();
+  }, []);
+
+  const getPriceData = async () => {
+    const response = await fetch('/api/price');
+    const data = await response.json();
+    setPriceData(data);
+  };
+
   return (
     <div id="priceChart">
-      <iframe
-        src="https://www.tradingview.com/chart/?symbol=BTCUSD"
-        height="450"
-        width="800"
-        allowtransparency="true"
-        frameborder="0"
-        scrolling="no"
-        allowfullscreen
-      >
-      </iframe>
+      <TradingViewWidget
+        symbol="BTCUSD"
+        theme={Themes.DARK}
+        locale="en"
+        autosize
+      />
     </div>
   );
 };
