@@ -1,44 +1,32 @@
-Shared Dependencies:
+1. Dependencies: 
+   - "next": The Next.js framework used in all pages and components.
+   - "react": The React library used in all pages and components.
+   - "solana-web3.js": The Solana JavaScript API used in "lib/solana.js".
+   - "tradingview": The TradingView library used in "lib/tradingView.js".
 
-1. Exported Variables:
-   - `priceData`: Data for the BTC price chart.
-   - `roundData`: Data for the carousel rounds.
-   - `optionData`: Data for the long and short options.
-   - `walletData`: Data for the connected wallet.
-   - `claimData`: Data for the claim button.
+2. Exported Variables:
+   - "PriceChart" from "components/PriceChart.js".
+   - "RoundCarousel" from "components/RoundCarousel.js".
+   - "OptionCard" from "components/OptionCard.js".
 
-2. Data Schemas:
-   - `PriceSchema`: Schema for the price chart data.
-   - `RoundSchema`: Schema for the carousel rounds data.
-   - `OptionSchema`: Schema for the long and short options data.
-   - `WalletSchema`: Schema for the connected wallet data.
-   - `ClaimSchema`: Schema for the claim button data.
+3. Data Schemas:
+   - "priceData" schema used in "pages/api/price.js" and "components/PriceChart.js".
+   - "roundData" schema used in "components/RoundCarousel.js".
+   - "optionData" schema used in "components/OptionCard.js".
 
-3. ID Names of DOM Elements:
-   - `priceChart`: ID for the price chart element.
-   - `carousel`: ID for the carousel element.
-   - `optionLong`: ID for the long option element.
-   - `optionShort`: ID for the short option element.
-   - `connectWallet`: ID for the connect wallet element.
-   - `claimButton`: ID for the claim button element.
+4. ID Names of DOM Elements:
+   - "price-chart" in "components/PriceChart.js".
+   - "round-carousel" in "components/RoundCarousel.js".
+   - "option-card" in "components/OptionCard.js".
 
-4. Message Names:
-   - `CONNECT_WALLET`: Message for connecting the wallet.
-   - `CLAIM_TOKENS`: Message for claiming the tokens.
+5. Message Names:
+   - "PRICE_UPDATE" used in "pages/api/price.js" and "components/PriceChart.js".
+   - "ROUND_EXPIRED" and "ROUND_COMING" used in "components/RoundCarousel.js".
+   - "OPTION_SELECTED" used in "components/OptionCard.js".
 
-5. Function Names:
-   - `getPriceData()`: Function to get the price data.
-   - `getRoundData()`: Function to get the round data.
-   - `getOptionData()`: Function to get the option data.
-   - `getWalletData()`: Function to get the wallet data.
-   - `getClaimData()`: Function to get the claim data.
-   - `connectWallet()`: Function to connect the wallet.
-   - `claimTokens()`: Function to claim the tokens.
-
-6. Shared Libraries:
-   - `next`: Used for server-side rendering.
-   - `react`: Used for building user interface.
-   - `@solana/web3.js`: Used for interacting with the Solana blockchain.
-   - `@binance/connector`: Used for interacting with the Binance blockchain.
-   - `tradingview-widget`: Used for displaying the BTC price chart.
-   - `react-responsive-carousel`: Used for displaying the carousel.
+6. Function Names:
+   - "getPriceData" in "pages/api/price.js" and "components/PriceChart.js".
+   - "getRoundData" in "components/RoundCarousel.js".
+   - "getOptionData" in "components/OptionCard.js".
+   - "connectSolana" in "lib/solana.js".
+   - "initTradingView" in "lib/tradingView.js".

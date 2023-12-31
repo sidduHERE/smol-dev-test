@@ -12,9 +12,11 @@
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-responsive-carousel": "^3.2.21",
-    "tradingview-widget": "^1.0.0",
-    "@solana/web3.js": "^1.30.2",
-    "@binance/connector": "^1.2.1"
+    "solana-web3.js": "^0.30.2",
+    "tradingview": "^1.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.2"
   }
 }

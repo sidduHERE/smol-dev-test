@@ -1,28 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import TradingViewWidget, { Themes } from 'react-tradingview-widget';
+import React, { useEffect, useRef } from 'react';
+import { initTradingView } from '../lib/tradingView';
+import styles from '../styles/PriceChart.module.css';
 
-const PriceChart = () => {
-  const [priceData, setPriceData] = useState([]);
+const PriceChart = ({ priceData }) => {
+  const chartRef = useRef();
 
   useEffect(() => {
-    getPriceData();
-  }, []);
-
-  const getPriceData = async () => {
-    const response = await fetch('/api/price');
-    const data = await response.json();
-    setPriceData(data);
-  };
+    if (priceData && chartRef.current) {
+      initTradingView(chartRef.current, priceData);
+    }
+  }, [priceData]);
 
   return (
-    <div id="priceChart">
-      <TradingViewWidget
-        symbol="BTCUSD"
-        theme={Themes.DARK}
-        locale="en"
-        autosize
-      />
-    </div>
+    <div className={styles.priceChart} id="price-chart" ref={chartRef}></div>
   );
 };
 

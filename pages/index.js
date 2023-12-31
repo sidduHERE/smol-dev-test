@@ -1,50 +1,38 @@
 import React from 'react';
 import Head from 'next/head';
 import PriceChart from '../components/PriceChart';
-import Carousel from '../components/Carousel';
-import Option from '../components/Option';
-import ConnectWallet from '../components/ConnectWallet';
-import ClaimButton from '../components/ClaimButton';
+import RoundCarousel from '../components/RoundCarousel';
+import OptionCard from '../components/OptionCard';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
         <title>Solana Prediction Market</title>
+        <meta name="description" content="Solana chain dapp for prediction market" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Welcome to Solana Prediction Market</h1>
-        <PriceChart id="priceChart" />
-        <Carousel id="carousel" />
-        <Option id="optionLong" type="long" />
-        <Option id="optionShort" type="short" />
-        <ConnectWallet id="connectWallet" />
-        <ClaimButton id="claimButton" />
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to Solana Prediction Market
+        </h1>
+
+        <p className={styles.description}>
+          Predict BTC price and make your move
+        </p>
+
+        <div className={styles.grid}>
+          <PriceChart className={styles.card} />
+          <RoundCarousel className={styles.card} />
+          <OptionCard className={styles.card} />
+        </div>
       </main>
 
-      <footer>
-        <p>Powered by Solana</p>
+      <footer className={styles.footer}>
+        Powered by Solana
       </footer>
     </div>
   )
-}
-
-export async function getServerSideProps() {
-  const priceData = await getPriceData();
-  const roundData = await getRoundData();
-  const optionData = await getOptionData();
-  const walletData = await getWalletData();
-  const claimData = await getClaimData();
-
-  return {
-    props: {
-      priceData,
-      roundData,
-      optionData,
-      walletData,
-      claimData
-    }
-  }
 }

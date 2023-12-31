@@ -1,14 +1,20 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getPriceData } from '../../lib/solana';
+
+// Mock data for BTC price
+const priceData = {
+  price: 50000,
+  timestamp: Date.now(),
+};
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  try {
-    const priceData = await getPriceData();
-    res.status(200).json(priceData);
-  } catch (err) {
-    res.status(500).json({ statusCode: 500, message: err.message });
-  }
+  // Simulate price update every 5 minutes
+  setInterval(() => {
+    priceData.price = Math.floor(Math.random() * 60000) + 40000;
+    priceData.timestamp = Date.now();
+  }, 300000);
+
+  res.status(200).json(priceData);
 }
