@@ -1,36 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import PredictionOption from './PredictionOption';
-import { getPredictions, expirePrediction, comingPrediction } from '../lib/solana';
+import React, { useState, useEffect } from 'react';
+import styles from '../styles/PredictionCarousel.module.css';
 
 const PredictionCarousel = () => {
   const [predictions, setPredictions] = useState([]);
 
   useEffect(() => {
-    const fetchPredictions = async () => {
-      const data = await getPredictions();
-      setPredictions(data);
-    };
-
-    fetchPredictions();
-
     const interval = setInterval(() => {
-      const expired = predictions.filter(prediction => prediction.expired);
-      const coming = predictions.filter(prediction => !prediction.expired && !prediction.active);
-      const active = predictions.filter(prediction => prediction.active);
-
-      expired.forEach(prediction => expirePrediction(prediction.id));
-      coming.forEach(prediction => comingPrediction(prediction.id));
-
-      setPredictions([...coming, ...active, ...expired]);
-    }, 300000); // 5 minutes
+      fetchPredictions();
+    }, 300000); // Fetch new predictions every 5 minutes
 
     return () => clearInterval(interval);
-  }, [predictions]);
+  }, []);
+
+  const fetchPredictions = async () => {
+    // Fetch predictions from Solana chain
+    // This is a placeholder and should be replaced with actual API call
+    const response = await fetch('/api/predictions');
+    const data = await response.json();
+
+    setPredictions(data.predictions);
+  };
 
   return (
-    <div id="prediction-carousel">
-      {predictions.map(prediction => (
-        <PredictionOption key={prediction.id} prediction={prediction} />
+    <div id="prediction-carousel" className={styles.carousel}>
+      {predictions.map((prediction, index) => (
+        <div key={index} className={styles.prediction}>
+          <h3>{prediction.title}</h3>
+          <p>{prediction.description}</p>
+          <button disabled={prediction.expired} className={styles.long}>Go Long</button>
+          <button disabled={prediction.expired} className={styles.short}>Go Short</button>
+        </div>
       ))}
     </div>
   );

@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import styles from '../styles/PriceChart.module.css';
 
 const PriceChart = () => {
+  const chartRef = useRef();
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://s3.tradingview.com/tv.js';
     script.async = true;
     script.innerHTML = JSON.stringify({
       "autosize": true,
-      "symbol": "BITSTAMP:BTCUSD",
+      "symbol": "BINANCE:BTCUSDT",
       "interval": "5",
       "timezone": "Etc/UTC",
       "theme": "dark",
@@ -18,11 +21,11 @@ const PriceChart = () => {
       "allow_symbol_change": true,
       "container_id": "price-chart"
     });
-    document.getElementById('price-chart').appendChild(script);
+    chartRef.current.appendChild(script);
   }, []);
 
   return (
-    <div id="price-chart" style={{ width: '100%', height: '400px' }}></div>
+    <div className={styles.container} id="price-chart" ref={chartRef}></div>
   );
 };
 
