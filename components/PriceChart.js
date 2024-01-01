@@ -1,31 +1,20 @@
 import React, { useEffect, useRef } from 'react';
+import { embedTradingViewChart } from '../lib/tradingView';
 import styles from '../styles/PriceChart.module.css';
 
-const PriceChart = () => {
-  const chartRef = useRef();
+const PriceChart = ({ priceData }) => {
+  const chartContainerRef = useRef();
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/tv.js';
-    script.async = true;
-    script.innerHTML = JSON.stringify({
-      "autosize": true,
-      "symbol": "BINANCE:BTCUSDT",
-      "interval": "5",
-      "timezone": "Etc/UTC",
-      "theme": "dark",
-      "style": "1",
-      "locale": "en",
-      "toolbar_bg": "#f1f3f6",
-      "enable_publishing": false,
-      "allow_symbol_change": true,
-      "container_id": "price-chart"
-    });
-    chartRef.current.appendChild(script);
-  }, []);
+    if (priceData && chartContainerRef.current) {
+      embedTradingViewChart(chartContainerRef.current, priceData);
+    }
+  }, [priceData]);
 
   return (
-    <div className={styles.container} id="price-chart" ref={chartRef}></div>
+    <div className={styles.priceChart} ref={chartContainerRef} id="price-chart">
+      {priceData ? null : <p>Loading chart...</p>}
+    </div>
   );
 };
 

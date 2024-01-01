@@ -1,35 +1,32 @@
-Shared Dependencies:
+1. Dependencies: 
+   - "next": The Next.js framework used in all pages and components.
+   - "react": The library used for building user interfaces in all pages and components.
+   - "solana-web3.js": The library used for interacting with the Solana blockchain in "lib/solana.js".
+   - "tradingview": The library used for embedding TradingView charts in "lib/tradingView.js".
 
-1. Exported Variables:
-   - `priceData` in "pages/api/price.js"
-   - `solana` in "lib/solana.js"
-   - `binance` in "lib/binance.js"
+2. Exported Variables:
+   - "PriceChart" from "components/PriceChart.js".
+   - "RoundCarousel" from "components/RoundCarousel.js".
+   - "OptionCard" from "components/OptionCard.js".
 
-2. Data Schemas:
-   - `Prediction` schema in "components/PredictionCarousel.js"
-   - `Airdrop` schema in "components/ClaimAirdrop.js"
+3. Data Schemas:
+   - "priceData" schema used in "pages/api/price.js" and "components/PriceChart.js".
+   - "roundData" schema used in "components/RoundCarousel.js".
+   - "optionData" schema used in "components/OptionCard.js".
 
-3. ID Names of DOM Elements:
-   - `price-chart` in "components/PriceChart.js"
-   - `prediction-carousel` in "components/PredictionCarousel.js"
-   - `claim-airdrop` in "components/ClaimAirdrop.js"
-   - `navbar` in "components/Navbar.js"
-   - `footer` in "components/Footer.js"
+4. ID Names of DOM Elements:
+   - "price-chart" in "components/PriceChart.js".
+   - "round-carousel" in "components/RoundCarousel.js".
+   - "option-card" in "components/OptionCard.js".
 
-4. Message Names:
-   - `PRICE_UPDATE` in "pages/api/price.js"
-   - `PREDICTION_UPDATE` in "components/PredictionCarousel.js"
-   - `CLAIM_AIRDROP` in "components/ClaimAirdrop.js"
+5. Message Names:
+   - "PRICE_UPDATE" used in "pages/api/price.js" and "components/PriceChart.js".
+   - "ROUND_EXPIRED" and "ROUND_COMING" used in "components/RoundCarousel.js".
+   - "OPTION_SELECTED" used in "components/OptionCard.js".
 
-5. Function Names:
-   - `getPriceData` in "pages/api/price.js"
-   - `connectWallet` in "components/ClaimAirdrop.js"
-   - `interactWithContract` in "components/ClaimAirdrop.js"
-   - `updatePrediction` in "components/PredictionCarousel.js"
-   - `renderPriceChart` in "components/PriceChart.js"
-
-6. Shared Libraries:
-   - `next` in "package.json"
-   - `react` in "package.json"
-   - `@solana/web3.js` in "lib/solana.js"
-   - `@binance/connector` in "lib/binance.js"
+6. Function Names:
+   - "getPriceData" in "pages/api/price.js" and "components/PriceChart.js".
+   - "getRoundData" in "components/RoundCarousel.js".
+   - "getOptionData" in "components/OptionCard.js".
+   - "connectToSolana" in "lib/solana.js".
+   - "embedTradingViewChart" in "lib/tradingView.js".

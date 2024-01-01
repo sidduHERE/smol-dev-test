@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #f0f0f0;
 }
 
 a {
@@ -21,45 +22,55 @@ a {
   padding: 0 15px;
 }
 
-.header {
-  background-color: #f8f9fa;
-  padding: 20px 0;
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 50%;
+  scroll-behavior: smooth;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 400px;
+  margin-right: 16px;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item:last-child {
+  margin-right: 0;
+}
+
+.option-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
   margin-bottom: 20px;
 }
 
-.footer {
-  background-color: #f8f9fa;
-  padding: 20px 0;
-  margin-top: 20px;
+.option-card button {
+  background: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.option-card button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
 .price-chart {
   width: 100%;
   height: 500px;
-}
-
-.prediction-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-}
-
-.claim-airdrop {
-  background-color: #f8f9fa;
-  padding: 20px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.button:hover {
-  background-color: #0056b3;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

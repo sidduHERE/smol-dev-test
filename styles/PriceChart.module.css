@@ -1,47 +1,41 @@
-.price-chart-container {
+.priceChartContainer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100%;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+    margin: 20px;
 }
 
-.price-chart {
+.priceChart {
     width: 100%;
     height: 500px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
-.price-chart iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.price-chart-header {
+.priceChartHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
-.price-chart-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+.priceChartHeader h2 {
+    margin: 0;
+    font-size: 1.2em;
 }
 
-.price-chart-refresh {
+.priceChartHeader button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0070f3;
+    color: #fff;
     cursor: pointer;
-    color: #0070f3;
-    font-size: 16px;
 }
 
-.price-chart-refresh:hover {
-    color: #0056b3;
+.priceChartBody {
+    width: 100%;
+    height: calc(100% - 50px);
+    padding: 20px;
 }
