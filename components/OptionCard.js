@@ -1,17 +1,24 @@
 import React from 'react';
-import styles from '../styles/OptionCard.module.css';
 
 const OptionCard = ({ optionData }) => {
-  const { status, option, timeRemaining } = optionData;
-
   return (
-    <div className={styles.optionCard} id="option-card">
-      <h2>{option}</h2>
-      <p>Status: {status}</p>
-      <p>Time Remaining: {timeRemaining}</p>
-      <button disabled={status !== 'active'}>Go {option}</button>
+    <div id="option-card" className="option-card">
+      <h3>{optionData.title}</h3>
+      <p>{optionData.description}</p>
+      <div className="option-actions">
+        <button className="option-action-long" onClick={() => goLong(optionData.id)}>Go Long</button>
+        <button className="option-action-short" onClick={() => goShort(optionData.id)}>Go Short</button>
+      </div>
     </div>
   );
+};
+
+const goLong = (optionId) => {
+  // Implement the logic to go long on the option
+};
+
+const goShort = (optionId) => {
+  // Implement the logic to go short on the option
 };
 
 export default OptionCard;

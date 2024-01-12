@@ -1,19 +1,33 @@
-import React, { useEffect, useRef } from 'react';
-import { embedTradingViewChart } from '../lib/tradingView';
-import styles from '../styles/PriceChart.module.css';
+import React, { useEffect, useState } from 'react';
 
-const PriceChart = ({ priceData }) => {
-  const chartContainerRef = useRef();
+const PriceChart = () => {
+  const [priceData, setPriceData] = useState(null);
 
   useEffect(() => {
-    if (priceData && chartContainerRef.current) {
-      embedTradingViewChart(chartContainerRef.current, priceData);
+    fetchPriceData();
+  }, []);
+
+  const fetchPriceData = async () => {
+    try {
+      const response = await fetch('/api/price.js');
+      const data = await response.json();
+      setPriceData(data);
+    } catch (error) {
+      console.error('Error fetching price data:', error);
     }
-  }, [priceData]);
+  };
 
   return (
-    <div className={styles.priceChart} ref={chartContainerRef} id="price-chart">
-      {priceData ? null : <p>Loading chart...</p>}
+    <div id="price-chart">
+      {priceData ? (
+        <iframe
+          title="BTC Price Chart"
+          src={`https://www.tradingview.com/chart/?symbol=${priceData.symbol}`}
+          style={{ width: '100%', height: '100%' }}
+        />
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };

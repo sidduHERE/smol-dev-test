@@ -1,32 +1,36 @@
-1. Dependencies: 
-   - "next": The Next.js framework used in all pages and components.
-   - "react": The library used for building user interfaces in all pages and components.
-   - "solana-web3.js": The library used for interacting with the Solana blockchain in "lib/solana.js".
-   - "tradingview": The library used for embedding TradingView charts in "lib/tradingView.js".
+Shared Dependencies:
 
-2. Exported Variables:
-   - "PriceChart" from "components/PriceChart.js".
-   - "RoundCarousel" from "components/RoundCarousel.js".
-   - "OptionCard" from "components/OptionCard.js".
+1. Exported Variables:
+   - `priceData`: Data for the BTC price chart.
+   - `roundData`: Data for the carousel rounds.
+   - `optionData`: Data for the current options.
+   - `winnerData`: Data for the list of winners.
 
-3. Data Schemas:
-   - "priceData" schema used in "pages/api/price.js" and "components/PriceChart.js".
-   - "roundData" schema used in "components/RoundCarousel.js".
-   - "optionData" schema used in "components/OptionCard.js".
+2. Data Schemas:
+   - `PriceSchema`: Schema for the price data.
+   - `RoundSchema`: Schema for the round data.
+   - `OptionSchema`: Schema for the option data.
+   - `WinnerSchema`: Schema for the winner data.
 
-4. ID Names of DOM Elements:
-   - "price-chart" in "components/PriceChart.js".
-   - "round-carousel" in "components/RoundCarousel.js".
-   - "option-card" in "components/OptionCard.js".
+3. ID Names of DOM Elements:
+   - `price-chart`: ID for the TradingView iframe.
+   - `round-carousel`: ID for the carousel of rounds.
+   - `option-card`: ID for the option cards.
+   - `airdrop-guide`: ID for the airdrop guide.
+   - `winner-list`: ID for the list of winners.
 
-5. Message Names:
-   - "PRICE_UPDATE" used in "pages/api/price.js" and "components/PriceChart.js".
-   - "ROUND_EXPIRED" and "ROUND_COMING" used in "components/RoundCarousel.js".
-   - "OPTION_SELECTED" used in "components/OptionCard.js".
+4. Message Names:
+   - `PRICE_UPDATE`: Message name for price updates.
+   - `ROUND_UPDATE`: Message name for round updates.
+   - `OPTION_UPDATE`: Message name for option updates.
+   - `WINNER_UPDATE`: Message name for winner updates.
 
-6. Function Names:
-   - "getPriceData" in "pages/api/price.js" and "components/PriceChart.js".
-   - "getRoundData" in "components/RoundCarousel.js".
-   - "getOptionData" in "components/OptionCard.js".
-   - "connectToSolana" in "lib/solana.js".
-   - "embedTradingViewChart" in "lib/tradingView.js".
+5. Function Names:
+   - `fetchPriceData()`: Function to fetch price data.
+   - `fetchRoundData()`: Function to fetch round data.
+   - `fetchOptionData()`: Function to fetch option data.
+   - `fetchWinnerData()`: Function to fetch winner data.
+   - `connectWallet()`: Function to connect wallet for airdrop.
+   - `checkEligibility()`: Function to check airdrop eligibility.
+   - `interactContract()`: Function to interact with airdrop contract.
+   - `engageRewards()`: Function to engage for extra rewards.

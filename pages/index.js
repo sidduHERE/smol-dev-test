@@ -1,38 +1,58 @@
-import React from 'react';
-import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import PriceChart from '../components/PriceChart';
-import RoundCarousel from '../components/RoundCarousel';
+import Carousel from '../components/Carousel';
 import OptionCard from '../components/OptionCard';
-import styles from '../styles/Home.module.css';
+import AirdropGuide from '../components/AirdropGuide';
+import WinnerList from '../components/WinnerList';
 
 export default function Home() {
+  const [priceData, setPriceData] = useState(null);
+  const [roundData, setRoundData] = useState(null);
+  const [optionData, setOptionData] = useState(null);
+  const [winnerData, setWinnerData] = useState(null);
+
+  useEffect(() => {
+    fetchPriceData();
+    fetchRoundData();
+    fetchOptionData();
+    fetchWinnerData();
+  }, []);
+
+  const fetchPriceData = async () => {
+    const response = await fetch('/api/price');
+    const data = await response.json();
+    setPriceData(data);
+  };
+
+  const fetchRoundData = async () => {
+    const response = await fetch('/api/rounds');
+    const data = await response.json();
+    setRoundData(data);
+  };
+
+  const fetchOptionData = async () => {
+    const response = await fetch('/api/options');
+    const data = await response.json();
+    setOptionData(data);
+  };
+
+  const fetchWinnerData = async () => {
+    const response = await fetch('/api/winners');
+    const data = await response.json();
+    setWinnerData(data);
+  };
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Solana Prediction Market</title>
-        <meta name="description" content="Solana chain dapp for prediction market" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Solana Prediction Market
-        </h1>
-
-        <p className={styles.description}>
-          Predict BTC price and go long or short
-        </p>
-
-        <div className={styles.grid}>
-          <PriceChart className={styles.card} />
-          <RoundCarousel className={styles.card} />
-          <OptionCard className={styles.card} />
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        Powered by Solana
-      </footer>
+    <div>
+      <Header />
+      <PriceChart data={priceData} />
+      <Carousel data={roundData} />
+      <OptionCard data={optionData} />
+      <AirdropGuide />
+      <WinnerList data={winnerData} />
+      <Footer />
     </div>
-  )
+  );
 }
