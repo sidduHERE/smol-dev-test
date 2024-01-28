@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#price-chart {
+    width: 100%;
+    height: 500px;
+    margin: 20px 0;
+}
+
+#carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.carousel-item {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.carousel-item.disabled {
+    opacity: 0.5;
+}
+
+#option-long, #option-short {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#option-long:hover, #option-short:hover {
+    background-color: #007B9A;
+}

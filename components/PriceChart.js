@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchBtcPrice } from '../api/btcPrice';
 
 const PriceChart = () => {
-    return (
-        <div id="price-chart">
-            <iframe
-                src="https://www.tradingview.com/chart/?symbol=BINANCE%3ABTCUSDT"
-                height="450"
-                width="800"
-                allowtransparency="true"
-                frameborder="0"
-                scrolling="no"
-                allowfullscreen
-            >
-            </iframe>
-        </div>
-    );
+  const [btcPrice, setBtcPrice] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const price = await fetchBtcPrice();
+      setBtcPrice(price);
+    }, 300000); // Fetch price every 5 minutes
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div id="price-chart">
+      {btcPrice ? (
+        <iframe
+          title="BTC Price Chart"
+          src={`https://www.tradingview.com/chart/?symbol=BTCUSD=${btcPrice}`}
+          frameBorder="0"
+        />
+      ) : (
+        <p>Loading BTC price chart...</p>
+      )}
+    </div>
+  );
 };
 
 export default PriceChart;

@@ -1,15 +1,13 @@
 import React from 'react';
 
-const Option = ({ optionType, disabled, onClick }) => {
+const Option = ({ option }) => {
+  const { id, type, status } = option;
+
   return (
-    <button 
-      id={`option-${optionType}`} 
-      disabled={disabled} 
-      onClick={onClick}
-      className={`option ${optionType}`}
-    >
-      {optionType.charAt(0).toUpperCase() + optionType.slice(1)}
-    </button>
+    <div id={`option-${id}`} className={`option ${type} ${status}`}>
+      <h3>{type.toUpperCase()}</h3>
+      <p>{status === 'disabled' ? 'Coming soon...' : 'Available now'}</p>
+    </div>
   );
 };
 
