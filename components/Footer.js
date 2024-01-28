@@ -6,17 +6,14 @@ const Footer = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
-                        <h2>Chainlink $LINK Airdrop</h2>
-                        <p>Join the airdrop and secure your Chainlink $LINK coins. Stay informed and engage for extra rewards.</p>
+                        <p>© 2024 AltLayer. All rights reserved.</p>
                     </div>
                     <div className="col-lg-6">
-                        <h2>Contact Us</h2>
-                        <p>Need help? Reach out via Telegram or other social media platforms.</p>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-12">
-                        <p className="copyright">© 2022 Solana Chain Dapp. All rights reserved.</p>
+                        <ul className="social-icons">
+                            <li><a href="https://twitter.com/altlayer">Twitter</a></li>
+                            <li><a href="https://www.facebook.com/altlayer">Facebook</a></li>
+                            <li><a href="https://www.linkedin.com/company/altlayer">LinkedIn</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

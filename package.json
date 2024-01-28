@@ -1,0 +1,20 @@
+{
+  "name": "altlayer-dapp",
+  "version": "1.0.0",
+  "description": "A Solana chain dapp for prediction market",
+  "main": "pages/index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": ["solana", "dapp", "prediction market", "altlayer"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "10.0.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tradingview-widget": "^1.0.0"
+  }
+}
