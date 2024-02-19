@@ -1,25 +1,22 @@
+```javascript
 import React from 'react';
 import styles from '../styles/OptionCard.module.css';
 
 const OptionCard = ({ option }) => {
-    const goLong = () => {
-        // logic for going long
-        console.log('Long position taken');
-    };
+  const { id, status, type, expiry } = option;
 
-    const goShort = () => {
-        // logic for going short
-        console.log('Short position taken');
-    };
-
-    return (
-        <div className={styles.card}>
-            <h2>{option.name}</h2>
-            <p>{option.description}</p>
-            <button id="long-button" onClick={goLong}>Go Long</button>
-            <button id="short-button" onClick={goShort}>Go Short</button>
-        </div>
-    );
+  return (
+    <div className={styles.card}>
+      <h3 className={styles.title}>Option {id}</h3>
+      <p className={styles.status}>Status: {status}</p>
+      <p className={styles.type}>Type: {type}</p>
+      <p className={styles.expiry}>Expiry: {expiry}</p>
+      <button className={styles.button} disabled={status !== 'active'}>
+        {status === 'active' ? 'Go ' + type : 'Expired'}
+      </button>
+    </div>
+  );
 };
 
 export default OptionCard;
+```

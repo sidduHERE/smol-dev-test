@@ -1,29 +1,44 @@
-```javascript
 import React from 'react';
 import Head from 'next/head';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import PriceChart from '../components/PriceChart';
-import Carousel from '../components/Carousel';
+import OptionCarousel from '../components/OptionCarousel';
+import ClaimTokens from '../components/ClaimTokens';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
         <title>Celestia Airdrop</title>
-        <meta name="description" content="Claim Your Free TIA Tokens Now!" />
+        <meta name="description" content="Claim your free TIA tokens now!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Celestia Airdrop - Claim Your Free TIA Tokens Now!
+        </h1>
 
-      <main>
+        <p className={styles.description}>
+          Don't Miss Out on Your Share of 60 Million $TIA Tokens!
+        </p>
+
         <PriceChart />
-        <Carousel />
+
+        <OptionCarousel />
+
+        <ClaimTokens />
       </main>
 
-      <Footer />
+      <footer className={styles.footer}>
+        <a
+          href="https://bit.ly/celestiarewards"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by Celestia
+        </a>
+      </footer>
     </div>
-  )
+  );
 }
-```

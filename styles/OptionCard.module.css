@@ -4,37 +4,48 @@
     align-items: center;
     justify-content: space-between;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px;
     margin: 10px;
     transition: all 0.3s ease;
-    background-color: #f9f9f9;
 }
 
 .optionCard:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.optionCard h2 {
-    font-size: 1.5em;
+.optionCard.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.optionCard .title {
+    font-size: 1.2em;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.optionCard button {
+.optionCard .description {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.optionCard .actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.optionCard .actions .button {
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     background-color: #0070f3;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
+    text-align: center;
 }
 
-.optionCard button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-.optionCard button:not(:disabled):hover {
+.optionCard .actions .button:hover {
     background-color: #0051bb;
 }
