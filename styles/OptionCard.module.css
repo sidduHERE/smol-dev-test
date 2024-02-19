@@ -1,0 +1,40 @@
+.optionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.optionCard:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.optionCard h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.optionCard button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0070f3;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.optionCard button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.optionCard button:not(:disabled):hover {
+    background-color: #0051bb;
+}

@@ -1,40 +1,29 @@
+```javascript
 import React from 'react';
 import Head from 'next/head';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import PriceChart from '../components/PriceChart';
-import PredictionCarousel from '../components/PredictionCarousel';
-import PredictionOption from '../components/PredictionOption';
-import styles from '../styles/Home.module.css';
+import Carousel from '../components/Carousel';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Solana Prediction Market</title>
-        <meta name="description" content="Solana chain dapp for prediction market" />
+        <title>Celestia Airdrop</title>
+        <meta name="description" content="Claim Your Free TIA Tokens Now!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Solana Prediction Market
-        </h1>
+      <Header />
 
-        <p className={styles.description}>
-          Predict the BTC price and go long or short
-        </p>
-
-        <div className={styles.grid}>
-          <PriceChart className={styles.card} />
-
-          <PredictionCarousel className={styles.card} />
-
-          <PredictionOption className={styles.card} />
-        </div>
+      <main>
+        <PriceChart />
+        <Carousel />
       </main>
 
-      <footer className={styles.footer}>
-        Powered by Solana
-      </footer>
+      <Footer />
     </div>
   )
 }
+```

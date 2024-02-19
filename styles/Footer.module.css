@@ -1,0 +1,31 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.footer .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.footer .links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer .links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer .links a:hover {
+    color: #cccccc;
+}
+
+.footer .copyright {
+    font-size: 0.8em;
+}

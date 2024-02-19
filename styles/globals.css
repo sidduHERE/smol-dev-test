@@ -4,7 +4,6 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #f0f0f0;
 }
 
 a {
@@ -22,44 +21,56 @@ a {
   padding: 0 15px;
 }
 
-.price-chart {
-  width: 100%;
-  height: 400px;
-  margin-bottom: 30px;
-}
-
-.prediction-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  padding: 15px 0;
-}
-
-.prediction-option {
-  flex: 0 0 auto;
-  width: 200px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-  text-align: center;
-}
-
-.prediction-option.disabled {
-  opacity: 0.5;
-}
-
 .button {
-  display: inline-block;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   background-color: #0070f3;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
 }
 
 .button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 50%;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
+}
+
+.carousel-item:disabled {
+  opacity: 0.5;
+}
+
+.option-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.option-card .button {
+  width: 100%;
+}
+
+.price-chart {
+  width: 100%;
+  height: 500px;
 }
