@@ -1,0 +1,52 @@
+.predictionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+}
+
+.predictionCard.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.predictionCard .title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.predictionCard .details {
+    font-size: 1em;
+    color: #666;
+}
+
+.predictionCard .options {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.predictionCard .optionButton {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.predictionCard .optionButton:hover {
+    background-color: #0056b3;
+}
+
+.predictionCard .optionButton:active {
+    background-color: #004085;
+}

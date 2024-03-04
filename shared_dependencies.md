@@ -1,38 +1,35 @@
-Shared Dependencies:
+1. Exported Variables:
+   - `priceData` in "pages/api/price.js"
+   - `PriceChart` in "components/PriceChart.js"
+   - `Carousel` in "components/Carousel.js"
+   - `PredictionCard` in "components/PredictionCard.js"
+   - `Countdown` in "components/Countdown.js"
+   - `OptionButton` in "components/OptionButton.js"
+   - `solana` in "lib/solana.js"
+   - `tradingView` in "lib/tradingView.js"
 
-1. **Next.js**: The framework used for building the website. It is used in all the pages and components.
+2. Data Schemas:
+   - `Prediction` schema in "components/PredictionCard.js"
+   - `Price` schema in "pages/api/price.js"
 
-2. **React.js**: The library used for building user interfaces. It is used in all the components.
+3. ID Names of DOM Elements:
+   - `price-chart` in "components/PriceChart.js"
+   - `carousel` in "components/Carousel.js"
+   - `prediction-card` in "components/PredictionCard.js"
+   - `countdown` in "components/Countdown.js"
+   - `option-button` in "components/OptionButton.js"
 
-3. **Solana Web3.js**: The library used for interacting with the Solana blockchain. It is used in "lib/solana.js".
+4. Message Names:
+   - `PRICE_UPDATE` in "pages/api/price.js"
+   - `NEW_ROUND` in "components/Carousel.js"
+   - `OPTION_SELECTED` in "components/OptionButton.js"
 
-4. **TradingView**: The library used for displaying the BTC price chart. It is used in "components/PriceChart.js" and "lib/tradingView.js".
-
-5. **CSS**: The language used for styling the website. It is used in "public/styles.css".
-
-6. **Image File**: The mockup image used for building components. It is used in "public/images/mockup.png".
-
-7. **Exported Variables**: 
-   - "price" from "pages/api/price.js"
-   - "PriceChart" from "components/PriceChart.js"
-   - "PredictionCarousel" from "components/PredictionCarousel.js"
-   - "PredictionOption" from "components/PredictionOption.js"
-   - "solana" from "lib/solana.js"
-   - "tradingView" from "lib/tradingView.js"
-
-8. **DOM Element IDs**: 
-   - "price-chart" in "components/PriceChart.js"
-   - "prediction-carousel" in "components/PredictionCarousel.js"
-   - "prediction-option" in "components/PredictionOption.js"
-
-9. **Function Names**: 
-   - "getPrice" in "pages/api/price.js"
-   - "renderChart" in "components/PriceChart.js"
-   - "renderCarousel" in "components/PredictionCarousel.js"
-   - "renderOption" in "components/PredictionOption.js"
-   - "connectSolana" in "lib/solana.js"
-   - "initTradingView" in "lib/tradingView.js"
-
-10. **Package.json**: Contains all the dependencies and scripts for the project.
-
-11. **Next.config.js**: Contains the configuration for the Next.js project.
+5. Function Names:
+   - `getPriceData` in "pages/api/price.js"
+   - `renderPriceChart` in "components/PriceChart.js"
+   - `renderCarousel` in "components/Carousel.js"
+   - `renderPredictionCard` in "components/PredictionCard.js"
+   - `startCountdown` in "components/Countdown.js"
+   - `selectOption` in "components/OptionButton.js"
+   - `connectSolana` in "lib/solana.js"
+   - `initTradingView` in "lib/tradingView.js"
