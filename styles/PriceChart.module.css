@@ -1,0 +1,18 @@
+.price-chart {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.price-chart iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.price-chart .tradingview-widget-copyright {
+    display: none;
+}
