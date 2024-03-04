@@ -1,29 +1,16 @@
+```javascript
 import React, { useEffect } from 'react';
-import { useTradingViewEmbed } from '../lib/tradingView';
-import styles from '../styles/PriceChart.module.css';
+import { initTradingView } from '../lib/tradingView';
 
 const PriceChart = () => {
-  const { embedWidget } = useTradingViewEmbed();
-
   useEffect(() => {
-    embedWidget('price-chart', {
-      symbol: 'BITSTAMP:BTCUSD',
-      interval: '5',
-      timezone: 'Etc/UTC',
-      theme: 'dark',
-      style: '1',
-      locale: 'en',
-      toolbar_bg: '#f1f3f6',
-      enable_publishing: false,
-      hide_top_toolbar: true,
-      save_image: false,
-      container_id: 'price-chart'
-    });
-  }, [embedWidget]);
+    initTradingView('price-chart');
+  }, []);
 
   return (
-    <div id="price-chart" className={styles.priceChart}></div>
+    <div id="price-chart" style={{ width: '100%', height: '400px' }}></div>
   );
 };
 
 export default PriceChart;
+```

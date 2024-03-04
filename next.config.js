@@ -1,6 +1,10 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['miro.medium.com'],
+    domains: ['localhost'], // Add the domain of your image source here
   },
+  env: {
+    SOLANA_NETWORK: 'https://api.mainnet-beta.solana.com',
+    TRADINGVIEW_URL: 'https://www.tradingview.com/chart/?symbol=BTCUSD'
+  }
 }

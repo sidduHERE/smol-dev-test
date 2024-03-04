@@ -1,23 +1,38 @@
-Shared dependencies between the files include:
+Shared Dependencies:
 
-1. **Next.js**: This is the main framework used for building the website. It is used in all the pages and components.
+1. **Next.js**: The framework used for building the website. It is used in all the pages and components.
 
-2. **React**: This is the library used for building the user interface. It is used in all the pages and components.
+2. **React.js**: The library used for building user interfaces. It is used in all the components.
 
-3. **Solana Web3.js**: This is the library used for interacting with the Solana blockchain. It is used in "lib/solana.js" and "pages/api/price.js".
+3. **Solana Web3.js**: The library used for interacting with the Solana blockchain. It is used in "lib/solana.js".
 
-4. **TradingView**: This is the library used for displaying the BTC price chart. It is used in "components/PriceChart.js" and "lib/tradingView.js".
+4. **TradingView**: The library used for displaying the BTC price chart. It is used in "components/PriceChart.js" and "lib/tradingView.js".
 
-5. **CSS Modules**: These are used for styling the components. They are used in all the ".module.css" files.
+5. **CSS**: The language used for styling the website. It is used in "public/styles.css".
 
-6. **Image File**: The image file "public/images/celestia-banner.png" is used in "components/ClaimTokens.js".
+6. **Image File**: The mockup image used for building components. It is used in "public/images/mockup.png".
 
-7. **DOM Element IDs**: These are used for manipulating the DOM elements in JavaScript. They include "price-chart", "option-carousel", "option-card", and "claim-tokens".
+7. **Exported Variables**: 
+   - "price" from "pages/api/price.js"
+   - "PriceChart" from "components/PriceChart.js"
+   - "PredictionCarousel" from "components/PredictionCarousel.js"
+   - "PredictionOption" from "components/PredictionOption.js"
+   - "solana" from "lib/solana.js"
+   - "tradingView" from "lib/tradingView.js"
 
-8. **Function Names**: These include "getPrice", "getOptions", "claimTokens", and "connectWallet". They are used in various files for fetching data from the Solana blockchain, displaying options, claiming tokens, and connecting the wallet.
+8. **DOM Element IDs**: 
+   - "price-chart" in "components/PriceChart.js"
+   - "prediction-carousel" in "components/PredictionCarousel.js"
+   - "prediction-option" in "components/PredictionOption.js"
 
-9. **Data Schemas**: These include the schemas for the price data, option data, and token data. They are used in "pages/api/price.js", "components/OptionCarousel.js", "components/OptionCard.js", and "components/ClaimTokens.js".
+9. **Function Names**: 
+   - "getPrice" in "pages/api/price.js"
+   - "renderChart" in "components/PriceChart.js"
+   - "renderCarousel" in "components/PredictionCarousel.js"
+   - "renderOption" in "components/PredictionOption.js"
+   - "connectSolana" in "lib/solana.js"
+   - "initTradingView" in "lib/tradingView.js"
 
-10. **Message Names**: These include "priceUpdate", "optionUpdate", and "tokenClaim". They are used for communication between the components and the Solana blockchain.
+10. **Package.json**: Contains all the dependencies and scripts for the project.
 
-11. **Exported Variables**: These include "price", "options", and "tokens". They are used for storing and passing data between the components.
+11. **Next.config.js**: Contains the configuration for the Next.js project.
