@@ -1,18 +1,17 @@
 import React, { useEffect, useRef } from 'react';
-import { initTradingView } from '../lib/tradingView';
-import styles from '../styles/PriceChart.module.css';
+import { getTradingViewChart } from '../lib/tradingView';
 
-const PriceChart = () => {
-  const chartRef = useRef();
+const PriceChart = ({ priceData }) => {
+  const chartContainerRef = useRef();
 
   useEffect(() => {
-    if (chartRef.current) {
-      initTradingView(chartRef.current);
+    if (priceData && chartContainerRef.current) {
+      getTradingViewChart(chartContainerRef.current, priceData);
     }
-  }, []);
+  }, [priceData]);
 
   return (
-    <div id="price-chart" className={styles.priceChart} ref={chartRef}></div>
+    <div id="price-chart" ref={chartContainerRef} />
   );
 };
 

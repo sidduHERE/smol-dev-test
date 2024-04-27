@@ -1,12 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import axios from 'axios'
+import axios from 'axios';
 
-export default async function getPriceData(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req, res) {
   try {
-    const response = await axios.get('https://api.coindesk.com/v1/bpi/currentprice/BTC.json')
-    const priceData = response.data.bpi.USD.rate_float
-    res.status(200).json({ priceData })
+    const response = await axios.get('https://api.coindesk.com/v1/bpi/currentprice/BTC.json');
+    const btcPrice = response.data.bpi.USD.rate_float;
+    res.status(200).json({ price: btcPrice });
   } catch (error) {
-    res.status(500).json({ error: 'Error fetching price data' })
+    res.status(500).json({ error: 'Error fetching BTC price' });
   }
 }

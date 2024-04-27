@@ -1,41 +1,52 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { getSolanaConnection } from '../lib/solana';
 import PriceChart from '../components/PriceChart';
 import Carousel from '../components/Carousel';
-import Countdown from '../components/Countdown';
-import OptionButton from '../components/OptionButton';
-import { connectSolana } from '../lib/solana';
-import { initTradingView } from '../lib/tradingView';
+import Option from '../components/Option';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
-  const [predictions, setPredictions] = useState([]);
-  const [currentPrediction, setCurrentPrediction] = useState(null);
-  const [priceData, setPriceData] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [rounds, setRounds] = useState([]);
+  const [currentOption, setCurrentOption] = useState(null);
 
   useEffect(() => {
-    connectSolana();
-    initTradingView(setPriceData);
+    const fetchPrice = async () => {
+      const response = await axios.get('/api/price');
+      setPrice(response.data.price);
+    };
+
+    const fetchRounds = async () => {
+      const connection = getSolanaConnection();
+      const roundsData = await connection.getProgramAccounts(
+        'predictionMarketProgramId'
+      );
+      setRounds(roundsData);
+    };
+
+    fetchPrice();
+    fetchRounds();
+
+    const priceInterval = setInterval(fetchPrice, 300000);
+    const roundsInterval = setInterval(fetchRounds, 300000);
+
+    return () => {
+      clearInterval(priceInterval);
+      clearInterval(roundsInterval);
+    };
   }, []);
 
-  useEffect(() => {
-    if (priceData) {
-      const newPredictions = [...predictions];
-      newPredictions.push(priceData);
-      setPredictions(newPredictions);
-      setCurrentPrediction(priceData);
-    }
-  }, [priceData]);
+  const handleOptionSelect = (option) => {
+    setCurrentOption(option);
+  };
 
   return (
-    <div>
-      <PriceChart priceData={priceData} />
-      <Carousel predictions={predictions} />
-      {currentPrediction && (
-        <div>
-          <Countdown prediction={currentPrediction} />
-          <OptionButton option="long" />
-          <OptionButton option="short" />
-        </div>
-      )}
+    <div className={styles.container}>
+      <img src="/images/mockup.jpg" alt="Mockup" className={styles.mockup} />
+      <PriceChart price={price} />
+      <Carousel rounds={rounds} onOptionSelect={handleOptionSelect} />
+      {currentOption && <Option option={currentOption} />}
     </div>
   );
 }
