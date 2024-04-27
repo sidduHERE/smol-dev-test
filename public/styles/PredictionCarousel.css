@@ -1,0 +1,42 @@
+.prediction-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.prediction-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.prediction-carousel__item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.prediction-carousel__item:hover {
+    transform: scale(1.05);
+}
+
+.prediction-carousel__item--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.prediction-carousel__item--coming-soon {
+    background-color: #ddd;
+}
+
+.prediction-carousel__item-content {
+    padding: 20px;
+    text-align: center;
+}

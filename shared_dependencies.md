@@ -1,31 +1,43 @@
-Shared dependencies between the files:
+Shared Dependencies:
 
-1. "next": The Next.js framework is used across all the pages and components files.
+1. Exported Variables: 
+   - `priceData` in `api/priceData.js`
+   - `predictionData` in `api/predictionData.js`
+   - `claimReward` in `api/claimReward.js`
 
-2. "react": React library is used in all the components and pages files.
+2. Data Schemas: 
+   - `PriceDataSchema` in `api/priceData.js`
+   - `PredictionDataSchema` in `api/predictionData.js`
+   - `ClaimRewardSchema` in `api/claimReward.js`
 
-3. "solana-web3.js": This library is used in the "lib/solana.js" file for interacting with the Solana blockchain.
+3. ID Names of DOM Elements: 
+   - `price-chart` in `components/PriceChart.js`
+   - `prediction-carousel` in `components/PredictionCarousel.js`
+   - `prediction-card` in `components/PredictionCard.js`
+   - `claim-reward` in `components/ClaimReward.js`
 
-4. "axios": This library is used in the "pages/api/price.js" file for making HTTP requests.
+4. Message Names: 
+   - `CONNECT_WALLET` in `components/ClaimReward.js`
+   - `CLAIM_NOW` in `components/ClaimReward.js`
 
-5. "tradingview": This library is used in the "lib/tradingView.js" file for embedding TradingView charts.
+5. Function Names: 
+   - `getPriceData` in `api/priceData.js`
+   - `getPredictionData` in `api/predictionData.js`
+   - `claimReward` in `api/claimReward.js`
+   - `connectWallet` in `components/ClaimReward.js`
 
-6. "mockup.jpg": This image is used in the "pages/index.js" file as a mockup for building components.
+6. Shared Libraries: 
+   - `next` in `pages/index.js` and `pages/_app.js`
+   - `react` in all components
+   - `axios` in all API files
 
-7. "styles": CSS modules are used across all the pages and components files for styling.
+7. Shared Styles: 
+   - `globals.css` in all components
+   - Individual CSS files for each component
 
-8. "process.env": Environment variables are used in the "next.config.js" and ".env.local" files.
+8. Shared Assets: 
+   - `mockup.jpg` in `public/images/`
 
-9. "getPrice": This function is exported from "pages/api/price.js" and used in "pages/index.js" and "components/PriceChart.js".
-
-10. "getSolanaConnection": This function is exported from "lib/solana.js" and used in "pages/index.js".
-
-11. "getTradingViewChart": This function is exported from "lib/tradingView.js" and used in "components/PriceChart.js".
-
-12. DOM Element IDs: "price-chart", "carousel", "option-long", "option-short" are used in JavaScript functions across "pages/index.js", "components/PriceChart.js", "components/Carousel.js", and "components/Option.js".
-
-13. Message Names: "priceUpdate", "roundExpired", "roundComing", "optionSelected" are used in "pages/index.js", "components/PriceChart.js", "components/Carousel.js", and "components/Option.js".
-
-14. Package.json: This file contains all the dependencies and scripts used across the project.
-
-15. Next.config.js: This file contains the configuration for the Next.js project used across the project.
+9. Shared Configurations: 
+   - `next.config.js` in the root directory
+   - `package.json` in the root directory

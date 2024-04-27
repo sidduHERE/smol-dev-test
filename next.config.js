@@ -1,9 +1,6 @@
 module.exports = {
-  env: {
-    SOLANA_NETWORK: process.env.SOLANA_NETWORK,
-    TRADINGVIEW_API: process.env.TRADINGVIEW_API,
-  },
+  reactStrictMode: true,
   images: {
     domains: ['i.ytimg.com'],
   },
-};
+}

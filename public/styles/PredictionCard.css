@@ -1,0 +1,57 @@
+.prediction-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.prediction-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.prediction-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.prediction-card .prediction-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.prediction-card .prediction-details {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.prediction-card .prediction-options {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.prediction-card .prediction-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.prediction-card .prediction-option:hover {
+    background-color: #f0f0f0;
+}
+
+.prediction-card .prediction-option.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

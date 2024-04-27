@@ -1,18 +1,20 @@
-import React, { useEffect, useRef } from 'react';
-import { getTradingViewChart } from '../lib/tradingView';
+import React from 'react';
 
-const PriceChart = ({ priceData }) => {
-  const chartContainerRef = useRef();
-
-  useEffect(() => {
-    if (priceData && chartContainerRef.current) {
-      getTradingViewChart(chartContainerRef.current, priceData);
-    }
-  }, [priceData]);
-
-  return (
-    <div id="price-chart" ref={chartContainerRef} />
-  );
+const PriceChart = () => {
+    return (
+        <div id="price-chart">
+            <iframe
+                src="https://www.tradingview.com/chart/?symbol=BTCUSD"
+                height="450"
+                width="800"
+                allowtransparency="true"
+                frameborder="0"
+                scrolling="no"
+                allowfullscreen
+            >
+            </iframe>
+        </div>
+    );
 };
 
 export default PriceChart;
