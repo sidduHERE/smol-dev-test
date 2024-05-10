@@ -1,34 +1,28 @@
+```javascript
 import React from 'react';
 import Link from 'next/link';
-import '../public/styles/Header.css';
+import styles from '../styles/Header.module.css';
 
 const Header = () => {
     return (
-        <header className="header">
+        <header className={styles.header}>
             <Link href="/">
-                <a className="logo">Blastoff.zone</a>
+                <a className={styles.logo}>Prediction Market</a>
             </Link>
-            <nav>
-                <ul className="nav-links">
-                    <li>
-                        <Link href="/price-chart">
-                            <a>BTC Price Chart</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/prediction-carousel">
-                            <a>Prediction Carousel</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/claim-reward">
-                            <a>Claim Reward</a>
-                        </Link>
-                    </li>
-                </ul>
+            <nav className={styles.nav}>
+                <Link href="/btc">
+                    <a className={styles.navLink}>BTC Price</a>
+                </Link>
+                <Link href="/eth">
+                    <a className={styles.navLink}>ETH Price</a>
+                </Link>
+                <Link href="https://app.bnbinchain.com/en/bnb-staking?utm_source=email&utm_campaign=leads&utm_id=github">
+                    <a className={styles.navLink} target="_blank" rel="noopener noreferrer">Stake on Binance</a>
+                </Link>
             </nav>
         </header>
     );
 };
 
 export default Header;
+```

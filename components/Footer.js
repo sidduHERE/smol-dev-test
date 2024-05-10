@@ -1,12 +1,11 @@
 import React from 'react';
-import '../public/styles/Footer.css';
+import styles from '../styles/Footer.module.css';
 
 const Footer = () => {
     return (
-        <footer className="footer">
-            <div className="container">
-                <p className="text-muted">© 2022 Blastoff.zone, All rights reserved.</p>
-            </div>
+        <footer className={styles.footer}>
+            <p>© 2022 Solana Prediction Market. All rights reserved.</p>
+            <p>Website created with ❤️ using Next.js and Solana</p>
         </footer>
     );
 }
