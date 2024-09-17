@@ -1,14 +1,13 @@
-import React from 'react';
-import styles from '../styles/PriceChart.module.css';
-import { useTradingViewEmbed } from '../lib/tradingView';
+import React, { useEffect } from 'react';
+import { renderChart } from '../lib/tradingView.js';
 
 const PriceChart = () => {
-  const { ref } = useTradingViewEmbed();
+  useEffect(() => {
+    renderChart('price-chart');
+  }, []);
 
   return (
-    <div className={styles.priceChartContainer}>
-      <div ref={ref} className={styles.tradingViewChart}></div>
-    </div>
+    <div id="price-chart" />
   );
 };
 

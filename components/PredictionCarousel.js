@@ -1,49 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/PredictionCarousel.module.css';
+import React, { useEffect, useState } from 'react';
+import { getPredictions } from '../lib/solana.js';
 
 const PredictionCarousel = () => {
-    const [predictions, setPredictions] = useState([]);
-    const [currentPrediction, setCurrentPrediction] = useState(null);
+  const [predictions, setPredictions] = useState([]);
 
-    useEffect(() => {
-        fetchPredictions();
-        const interval = setInterval(fetchPredictions, 300000); // Fetch new predictions every 5 minutes
-        return () => clearInterval(interval);
-    }, []);
+  useEffect(() => {
+    fetchPredictions();
+    const interval = setInterval(fetchPredictions, 300000); // Fetch new predictions every 5 minutes
 
-    const fetchPredictions = async () => {
-        try {
-            const res = await fetch('/api/predictions');
-            const data = await res.json();
-            setPredictions(data);
-            setCurrentPrediction(data[0]);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    return () => clearInterval(interval); // Clean up on component unmount
+  }, []);
 
-    const handlePredictionClick = (prediction) => {
-        setCurrentPrediction(prediction);
-    };
+  const fetchPredictions = async () => {
+    const newPredictions = await getPredictions();
+    setPredictions(newPredictions);
+  };
 
-    return (
-        <div className={styles.carousel}>
-            {predictions.map((prediction, index) => (
-                <div
-                    key={index}
-                    className={`${styles.prediction} ${prediction === currentPrediction ? styles.active : ''}`}
-                    onClick={() => handlePredictionClick(prediction)}
-                >
-                    <p>{prediction.title}</p>
-                    <p>{prediction.description}</p>
-                    <div className={styles.options}>
-                        <button className={styles.long}>Long</button>
-                        <button className={styles.short}>Short</button>
-                    </div>
-                </div>
-            ))}
+  return (
+    <div id="prediction-carousel">
+      {predictions.map((prediction, index) => (
+        <div key={index} className={`prediction ${prediction.status}`}>
+          <p>{prediction.status === 'expired' ? 'Expired' : prediction.status === 'upcoming' ? 'Upcoming' : 'Current'}</p>
+          <p>Long: {prediction.options.long}</p>
+          <p>Short: {prediction.options.short}</p>
+          <p>Expires in: {prediction.expiry}</p>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default PredictionCarousel;

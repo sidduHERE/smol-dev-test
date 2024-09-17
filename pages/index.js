@@ -1,41 +1,31 @@
-```javascript
-import Head from 'next/head'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import PriceChart from '../components/PriceChart'
-import PredictionCarousel from '../components/PredictionCarousel'
-import StakingBanner from '../components/StakingBanner'
-import styles from '../styles/Home.module.css'
+import React, { useEffect, useState } from 'react';
+import PriceChart from '../components/PriceChart';
+import PredictionCarousel from '../components/PredictionCarousel';
+import PredictionOption from '../components/PredictionOption';
+import { getPredictions } from '../lib/solana';
 
 export default function Home() {
+  const [predictions, setPredictions] = useState([]);
+
+  useEffect(() => {
+    async function fetchPredictions() {
+      const data = await getPredictions();
+      setPredictions(data);
+    }
+
+    fetchPredictions();
+    const interval = setInterval(fetchPredictions, 300000); // Fetch every 5 minutes
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Solana Prediction Market</title>
-        <meta name="description" content="Solana chain dapp for prediction market" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header />
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Solana Prediction Market
-        </h1>
-
-        <p className={styles.description}>
-          Predict BTC price and earn rewards
-        </p>
-
-        <PriceChart />
-
-        <PredictionCarousel />
-
-        <StakingBanner />
-      </main>
-
-      <Footer />
+    <div>
+      <PriceChart />
+      <PredictionCarousel predictions={predictions} />
+      {predictions.map((prediction, index) => (
+        <PredictionOption key={index} prediction={prediction} />
+      ))}
     </div>
-  )
+  );
 }
-```
